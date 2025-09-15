@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Wellness Portfolio Design System - Nature-inspired theme
+All colors MUST be HSL for proper theming.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Clean and fresh */
+    --background: 0 0% 100%;
+    --foreground: 155 25% 15%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 155 25% 15%;
+
+    /* Popover system */
+    --popover: 0 0% 100%;
+    --popover-foreground: 155 25% 15%;
+
+    /* Primary - Leaf Green theme */
+    --primary: 155 65% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 155 60% 45%;
+    --primary-dark: 155 70% 25%;
+
+    /* Secondary - Orange accent */
+    --secondary: 35 85% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 35 80% 65%;
+    --secondary-dark: 35 90% 45%;
+
+    /* Wellness-specific colors */
+    --wellness-green: 155 65% 35%;
+    --wellness-orange: 35 85% 55%;
+    --wellness-cream: 45 25% 95%;
+    --wellness-sage: 155 25% 75%;
+    --wellness-forest: 155 70% 25%;
+
+    /* Muted tones */
+    --muted: 155 15% 95%;
+    --muted-foreground: 155 15% 45%;
+
+    /* Accent system */
+    --accent: 155 15% 95%;
+    --accent-foreground: 155 25% 15%;
+
+    /* Status colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Form elements */
+    --border: 155 15% 85%;
+    --input: 155 15% 95%;
+    --ring: 155 65% 35%;
+
+    --radius: 0.75rem;
+
+    /* Gradients - Nature-inspired */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--wellness-green)) 0%, hsl(var(--wellness-forest)) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(var(--wellness-cream)) 0%, hsl(var(--background)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--wellness-cream)) 100%);
+    --gradient-orange: linear-gradient(135deg, hsl(var(--wellness-orange)) 0%, hsl(var(--secondary-dark)) 100%);
+
+    /* Shadows - Soft and natural */
+    --shadow-soft: 0 4px 20px hsl(var(--wellness-green) / 0.1);
+    --shadow-card: 0 8px 30px hsl(var(--wellness-green) / 0.15);
+    --shadow-hero: 0 20px 60px hsl(var(--wellness-forest) / 0.3);
+
+    /* Typography scale */
+    --font-hero: 3.5rem;
+    --font-heading: 2.5rem;
+    --font-subheading: 1.5rem;
+    --font-body: 1rem;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-foreground;
+  }
+
+  h1 {
+    @apply text-hero leading-tight;
+  }
+
+  h2 {
+    @apply text-heading leading-tight;
+  }
+
+  h3 {
+    @apply text-subheading leading-relaxed;
+  }
+}
+
+@layer components {
+  /* Hero section */
+  .hero-section {
+    background: var(--gradient-hero);
+    @apply relative overflow-hidden;
+  }
+
+  .hero-pattern {
+    @apply absolute inset-0 opacity-10;
+    background-image: radial-gradient(circle at 20% 20%, hsl(var(--wellness-cream)) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, hsl(var(--wellness-orange) / 0.3) 0%, transparent 50%);
+  }
+
+  /* Card components */
+  .wellness-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    @apply rounded-lg border border-border/50 backdrop-blur-sm;
+    transition: var(--transition-smooth);
+  }
+
+  .wellness-card:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-hero);
+  }
+
+  /* Button variants */
+  .btn-hero {
+    background: var(--gradient-orange);
+    @apply text-secondary-foreground font-semibold px-8 py-4 rounded-lg;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-bounce);
+  }
+
+  .btn-hero:hover {
+    @apply -translate-y-0.5 scale-105;
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary font-semibold px-6 py-3 rounded-lg bg-transparent;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-outline:hover {
+    @apply bg-primary text-primary-foreground -translate-y-0.5;
+  }
+
+  /* Section styling */
+  .section-gradient {
+    background: var(--gradient-section);
+  }
+
+  /* Animations */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .fade-in-left {
+    @apply opacity-0 -translate-x-8;
+    animation: fadeInLeft 0.6s ease-out forwards;
+  }
+
+  .fade-in-right {
+    @apply opacity-0 translate-x-8;
+    animation: fadeInRight 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+@keyframes fadeInLeft {
+  to {
+    @apply opacity-100 translate-x-0;
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    @apply opacity-100 translate-x-0;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-hero {
+    font-size: var(--font-hero);
+  }
+
+  .text-heading {
+    font-size: var(--font-heading);
+  }
+
+  .text-subheading {
+    font-size: var(--font-subheading);
+  }
+
+  .font-body {
+    font-size: var(--font-body);
+  }
+}
